@@ -4,15 +4,27 @@ import Cell from "./component/cell";
 import "./globals.css";
 
 export default function Home() {
-  const [cell, setcell] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [cells, setcells] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [currentplayer, setcurrentplayer] = useState("circle");
+
+  console.log(cells);
 
   return (
     <div className="container">
       <div className="dashboard">
-        {cell.map((cell, index) => (
-          <Cell key={index} />
+        {cells.map((cell, index) => (
+          <Cell
+            id={index}
+            currentplayer={currentplayer}
+            setcurrentplayer={setcurrentplayer}
+            key={index}
+            cells={cells}
+            setcells={setcells}
+            cell={cell}
+          />
         ))}
       </div>
+      <div>{`it is now ${currentPl}`} </div>
     </div>
   );
 }
