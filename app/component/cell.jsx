@@ -1,7 +1,16 @@
 import React from "react";
 
-const Cell = ({ currentplayer, setcurrentplayer, id, cells, setcells }) => {
+const Cell = ({
+  currentplayer,
+  setcurrentplayer,
+  id,
+  cells,
+  setcells,
+  disabled,
+}) => {
   const handleclick = (e) => {
+    if (disabled) return;
+
     const nottaken = !cells[id];
 
     if (nottaken) {
